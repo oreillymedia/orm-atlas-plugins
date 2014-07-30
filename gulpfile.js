@@ -2,11 +2,12 @@ var fs = require('fs');
 var path = require('path');
 var merge = require('merge-stream');
 var gulp = require('gulp');
+var del = require('del');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
-var del = require('del');
+var open = require("gulp-open");
 
 var srcPath = './plugins/';
 var outPath = './build/';
@@ -37,4 +38,18 @@ gulp.task('build', function() {
    });
 
    return merge(tasks);
+});
+
+gulp.task('build_specs', function() {
+  return gulp.src('./plugins/**/spec/*_spec.coffee')
+    .pipe(concat('combined.coffee'))  // concat into foldername.js
+    //.pipe(gulp.dest("./spec/"))  // write to output
+    .pipe(coffee())  // coffeescript 
+    .pipe(rename("combined.js")) // rename to folder.min.js
+    .pipe(gulp.dest("./spec/"));  // write to output again
+});
+
+gulp.task('test', ['build', 'build_specs'], function() {
+  gulp.src("./spec/index.html").pipe(open("<%file.path%>")); 
+  gulp.watch('./**/*.coffee', ['build', 'build_specs']);
 });
