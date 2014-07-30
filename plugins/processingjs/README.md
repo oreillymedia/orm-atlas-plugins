@@ -15,12 +15,23 @@ First you need to include the plugin and its dependencies in either the `<head>`
 <script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/processingjs/processingjs-0.0.1.min.js"></script>
 ```
 
-To automatically convert a Processing example to a runnable widget, use the `data-runnable` attribute.
+To automatically convert a Processing example to a runnable widget, use the `data-executable` attribute on the `pre` element.
 
 ```html
+<pre data-executable="true" data-code-language="processingjs">
+void setup() {
+  size(200,200);
+}
+
+void draw() {
+  fill(255, 0, 0);
+  ellipse(100, 100, 50, 50);
+}
+</pre>
 ```
 
 You can also manually trigger a runnable code widget in JS:
 
 ```js
+TODO
 ```
