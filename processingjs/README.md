@@ -11,6 +11,7 @@ First you need to include the plugin and its dependencies in either the `<head>`
 ```html
 <script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/libs/underscore-1.6.0.min.js"></script>
 <script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/libs/processing-1.4.8.min.js"></script>
+<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/libs/codemirror-4.4.min.js"></script>
 <script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/processingjs/processingjs-0.0.1.min.js"></script>
 ```
 

@@ -1,0 +1,7 @@
+{
+  "name": "orm-atlas-plugins",
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-compile-js" : "0.0.3"
+  }
+}
