@@ -20,4 +20,5 @@ Testing a plugin
 Building a plugin
 -----------------
 
-Run the `gulp build` command to build all plugins into the `/build` folder. Then upload the resulting file to the `orm-atlas-plugins` bucket on S3, and access the file on the Cloudfront CDN on `d2uogd9jz9k9zm.cloudfront.net`.
+1. Bump the version of the plugin after making changes.
+1. Run the `gulp build` command to build all plugins into the `/build` folder. 2. Upload the resulting plugin file to the `orm-atlas-plugins` bucket on S3, and access the file on the Cloudfront CDN on `d2uogd9jz9k9zm.cloudfront.net`.
