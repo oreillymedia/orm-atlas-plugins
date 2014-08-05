@@ -8,6 +8,8 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
 var open = require("gulp-open");
+var sass = require('gulp-sass');
+var _ = require('underscore');
 
 var srcPath = './plugins/';
 var outPath = './build/';
@@ -21,23 +23,26 @@ function getFolders(dir) {
 
 gulp.task('build', function() {    
    
-   var folders = getFolders(srcPath);
+  var folders = getFolders(srcPath);
 
-   var tasks = folders.map(function(folder) {
+  _.each(folders, function(folder) {
 
-      var p = require("./" + srcPath + "/" + folder + '/package.json');
-      var filename = folder + '-' + p.version + '.min.js'
-      
-      return gulp.src(path.join(srcPath, folder, '/*.coffee'))
-        .pipe(concat(folder + '.coffee'))  // concat into foldername.js
-        .pipe(gulp.dest(outPath))  // write to output
-        .pipe(coffee())  // coffeescript 
-        .pipe(uglify())  // minify
-        .pipe(rename(filename)) // rename to folder.min.js
-        .pipe(gulp.dest(outPath));  // write to output again
-   });
+    // read version from package.json
+    var p = require("./" + srcPath + "/" + folder + '/package.json');
+    
+    // compile sass into a .css file in /build
+    gulp.src(path.join(srcPath, folder, '/stylesheets/*.scss'))
+      .pipe(sass())
+      .pipe(concat(folder + '-' + p.version + '.css'))
+      .pipe(gulp.dest(outPath));
 
-   return merge(tasks);
+    // compile coffee into a .js file in /build
+    gulp.src(path.join(srcPath, folder, '/javascripts/*.coffee'))
+      .pipe(coffee())
+      .pipe(concat(folder + '-' + p.version + '.min.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(outPath));
+  });
 });
 
 gulp.task('build_specs', function() {
@@ -51,5 +56,5 @@ gulp.task('build_specs', function() {
 
 gulp.task('test', ['build', 'build_specs'], function() {
   gulp.src("./spec/index.html").pipe(open("<%file.path%>")); 
-  gulp.watch('./**/*.coffee', ['build', 'build_specs']);
+  gulp.watch(['./**/*.coffee', './**/*.scss'], ['build', 'build_specs']);
 });
