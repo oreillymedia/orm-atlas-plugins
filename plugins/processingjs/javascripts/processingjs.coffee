@@ -58,4 +58,8 @@ class atlasplugins.ProcessingJS
 
       e.preventDefault()
     )
+
+$(->
+  $("pre[data-executable]").each((pre) -> new atlasplugins.ProcessingJS(pre))
+)
     
