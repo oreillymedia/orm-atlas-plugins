@@ -9,13 +9,13 @@ How to use
 First you need to include the plugin and its dependencies in either the `<head>` of your `layout.html` file, or the `javascripts` and `stylesheets` array of your `atlas.json` file.
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://d2uogd9jz9k9zm.cloudfront.net/libs/codemirror-4.4.css">
-<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/libs/codemirror-4.4.min.js"></script>
-<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/libs/underscore-1.6.0.min.js"></script>
-<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/libs/processing-1.4.8.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://d2uogd9jz9k9zm.cloudfront.net/codemirror-4.4.css">
+<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/codemirror-4.4.min.js"></script>
+<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/underscore-1.6.0.min.js"></script>
+<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/processing-1.4.8.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="https://d2uogd9jz9k9zm.cloudfront.net/processingjs/processingjs-0.0.1.css">
-<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/processingjs/processingjs-0.0.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://d2uogd9jz9k9zm.cloudfront.net/processingjs-0.0.1.css">
+<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/processingjs-0.0.1.min.js"></script>
 ```
 
 To automatically convert a Processing example to a runnable widget, use the `data-executable` attribute on the `pre` element.
