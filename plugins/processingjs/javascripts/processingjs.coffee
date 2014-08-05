@@ -60,6 +60,6 @@ class atlasplugins.ProcessingJS
     )
 
 $(->
-  $("pre[data-executable]").each((pre) -> new atlasplugins.ProcessingJS(pre))
+  $("pre[data-executable]").each((pre) -> new atlasplugins.ProcessingJS(this))
 )
     
