@@ -11,7 +11,7 @@ Simply add a single variable with your tracking code and link to the library.
 ```html
 <script type="text/javascript">
   if(!window.atlasplugins) window.atlasplugins = {}
-  atlasplugins.gaTrackingCode = "UA-12345678-9"
+  atlasplugins.gaTrackingCode = "UA-12345678-9";
 </script>
 <script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/googleanalytics-0.0.1.min.js"></script>
 ```
@@ -19,6 +19,6 @@ Simply add a single variable with your tracking code and link to the library.
 You can also use a dynamic variable from the `atlas.json` file like this:
 
 ```js
-  atlaspluginsgaTrackingCode = "{{myVariable}}}"
+atlasplugins.gaTrackingCode = "{{myVariable}}}";
 ```
 
