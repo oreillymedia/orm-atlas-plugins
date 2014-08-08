@@ -1,0 +1,19 @@
+unless ENV["RACK_ENV"] == "production"
+  require 'rspec/core'
+  require 'rspec/core/rake_task'
+  require 'dotenv'
+  
+  task :default => :spec
+  
+  desc "Run all specs in spec directory (excluding plugin specs)"
+  RSpec::Core::RakeTask.new(:spec)
+  
+  task :console do
+    Dotenv.load
+    exec "irb -r ./app"
+  end
+  
+  task :server do
+    exec "unicorn config.ru -p 3000"
+  end
+end
