@@ -1,1 +1,0 @@
-web: bundle exec unicorn ./orm-code-eval/config.ru -p $PORT -c ./orm-code-eval/config/unicorn.rb
