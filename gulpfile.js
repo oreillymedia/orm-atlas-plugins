@@ -9,6 +9,7 @@ var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
 var open = require("gulp-open");
 var sass = require('gulp-sass');
+var connect = require("gulp-connect");
 var _ = require('underscore');
 
 var srcPath = './plugins/';
@@ -55,6 +56,6 @@ gulp.task('build_specs', function() {
 });
 
 gulp.task('test', ['build', 'build_specs'], function() {
-  gulp.src("./spec/index.html").pipe(open("<%file.path%>")); 
+  connect.server({port: 8002})
   gulp.watch(['./**/*.coffee', './**/*.scss'], ['build', 'build_specs']);
 });

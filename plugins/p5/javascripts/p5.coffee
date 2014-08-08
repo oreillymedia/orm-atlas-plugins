@@ -12,15 +12,13 @@ class atlasplugins.P5
     @state = @STATE_CODE
     @$el = $(el)
     @code = @$el.html()
-    @processing = null
-
-    @template = _.template("""<div class="processingjs">
+    @template = _.template("""<div class="p5">
   <div class="control-area">
     <a href="#" class="switch"><%= label %></a>
   </div>
   <div class="display-area"> 
     <div class="editor"><textarea><%= code %></textarea></div>
-    <canvas id="<%= id %>" class="output"></canvas>
+    <iframe id="<%= id %>" class="output"></iframe>
   </div>
 </div>
 """)
@@ -47,9 +45,11 @@ class atlasplugins.P5
         @state = @STATE_SKETCH
         @$newEl.find(".control-area .switch").text("Edit")
         @$newEl.find(".editor").hide()
-        @$newEl.find(".output").show()
-        @processing.noLoop() if @processing
-        @processing = new Processing(@id, @codemirror.getValue())
+        
+        code = @codemirror.getValue()
+        html = ""
+        url = "http://orm-code-eval.herokuapp.com/eval?js_string=#{encodeURIComponent(code)}&html_string=#{encodeURIComponent(html)}&js_libs[]=https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.2.22/p5.min.js"
+        @$newEl.find(".output").show().attr('src', url)
       else
         @$newEl.find(".control-area .switch").text("Run")
         @$newEl.find(".editor").show()
@@ -60,6 +60,6 @@ class atlasplugins.P5
     )
 
 $(->
-  $("pre[data-executable]").each((pre) -> new atlasplugins.ProcessingJS(this))
+  $("pre[data-executable]").each((pre) -> new atlasplugins.P5(this))
 )
     
