@@ -1,7 +1,7 @@
-Processing.js Plugin
+P5.js Plugin
 --------------------
 
-This plugin can turn Processing code examples into a runnable code sample, with a canvas and everything!
+This plugin can turn P5 javascript code examples into a runnable code sample, with a canvas and everything!
 
 How to use
 ----------

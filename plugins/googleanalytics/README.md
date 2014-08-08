@@ -6,19 +6,7 @@ Use this plugin to insert Google Analytics on a website.
 How to use
 ----------
 
-Simply add a single variable with your tracking code and link to the library.
+Look in the `/examples` folder. 
 
-```html
-<script type="text/javascript">
-  if(!window.atlasplugins) window.atlasplugins = {}
-  atlasplugins.gaTrackingCode = "UA-12345678-9";
-</script>
-<script type="text/javascript" src="https://d2uogd9jz9k9zm.cloudfront.net/googleanalytics-0.0.1.min.js"></script>
-```
-
-You can also use a dynamic variable from the `atlas.json` file like this:
-
-```js
-atlasplugins.gaTrackingCode = "{{myVariable}}}";
-```
-
+* `embed.html` shows how to use the plugin with a tracking code
+* `atlas_json_embed.html` shows how to use the plugin with a tracking code coming from atlas.json
