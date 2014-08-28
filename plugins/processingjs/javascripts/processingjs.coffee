@@ -33,12 +33,18 @@ class atlasplugins.ProcessingJS
 
     @$el.replaceWith(@$newEl)
 
-    # enable codemirror on textarea
-    @codemirror = CodeMirror.fromTextArea(@$newEl.find(".editor textarea")[0],
+    default_settings = 
       lineNumbers: true,
       autofocus: false,
       mode: "text/x-java"
-    )
+
+    if atlasplugins.codeMirrorSettings
+      default_settings = _.extend(default_settings, atlasplugins.codeMirrorSettings) 
+
+    console.log default_settings
+
+    # enable codemirror on textarea
+    @codemirror = CodeMirror.fromTextArea(@$newEl.find(".editor textarea")[0], default_settings)
 
     # enable switching back and forth
     @$newEl.find(".control-area .switch").click((e) =>
