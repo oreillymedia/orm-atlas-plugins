@@ -11,6 +11,7 @@ var open = require("gulp-open");
 var sass = require('gulp-sass');
 var connect = require("gulp-connect");
 var _ = require('underscore');
+var s3 = require("gulp-s3");
 
 var srcPath = './plugins/';
 var buildPath = './build/';
@@ -76,4 +77,17 @@ gulp.task('examples', ['build'], function() {
     root: 'examples'
   })
   gulp.watch(['./**/*.coffee', './**/*.scss'], ['build']);
+});
+
+
+gulp.task('publish', ['build'], function() {
+  aws = JSON.parse(fs.readFileSync('./aws.json'));
+  
+  // publish examples
+  aws.bucket = "orm-atlas-plugins-examples"
+  gulp.src('./examples/**').pipe(s3(aws));
+
+  // publish build
+  aws.bucket = "orm-atlas-plugins"
+  gulp.src('./build/**').pipe(s3(aws));
 });

@@ -32,9 +32,22 @@ gulp test
 
 Gulp will continously watch the files for changes and regenerate them if needed.
 
+Deploying
+---------
 
-Building a plugin
------------------
+If you made any changes, make sure that you bump the version number in the plugin's `package.json` file. To run a deploy, first create a `aws.json` file in the folder root:
 
-1. Bump the version of the plugin after making changes.
-1. Run the `gulp build` command to build all plugins into the `/build` folder. 2. Upload the resulting plugin file to the `orm-atlas-plugins` bucket on S3, and access the file on the Cloudfront CDN on `d2uogd9jz9k9zm.cloudfront.net`.
+```json
+{
+  "key": "AKIAI3Z7CUAFHG53DMJA",
+  "secret": "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"
+}
+```
+
+Then run `gulp publish`. This will update all plugins to newest versions. PLEASE don't publish if you're not sure what you're doing.
+
+The examples end up here:
+http://orm-atlas-plugins-examples.s3-website-us-east-1.amazonaws.com/
+
+The CDN to get the actual plugins is here:
+https://d2uogd9jz9k9zm.cloudfront.net
