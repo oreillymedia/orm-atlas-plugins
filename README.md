@@ -1,17 +1,23 @@
 Atlas Plugins
 =================
 
-This is a repository that holds JS plugins to be used in Atlas. Each plugin will have its own folder, with test coverage. It is also expected that each plugin has a `README.md` file, to explain how the plugin is to be used.
+This repository holds JS plugins to be used with O'Reilly Atlas. Each plugin has its own folder, some with test coverage. It is also expected that each plugin has a `README.md` file, to explain how the plugin is to be used, as well as an `examples` folder with actual usage examples.
 
+
+Local Development
+-----------------
+
+Make sure you have `npm` installed. Then run:
+
+- `npm install -g gulp`
+- `npm install`
 
 Writing a plugin
 --------------------
 
-1. Create a new folder named after the plugin inside of `/plugins`
-2. Create a `package.json` file to specify the version number. We borrowed this from NPM, but we're only using the file to track the dependencies and version number.
-4. Create a `README.md` file that describes how to use the plugin.
-5. Write a bunch of coffeescript files.
+The `p5` plugin is a good place to start. It has a single `.coffee` file and a single `.scss` file to start. Most plugin development is done by writing `.html` files in the `examples` folder of each plugin, and checking them in your browser.
 
+To run the example, run `gulp examples`. Then open `localhost:8002` in your browser.
 
 Testing a plugin
 ----------------
