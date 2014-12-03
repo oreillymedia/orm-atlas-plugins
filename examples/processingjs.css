@@ -1,0 +1,25 @@
+.processingjs {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 5px;
+  border: 1px solid #C2C2C2;
+  margin-top: 20px;
+  padding-bottom: 20px; }
+  .processingjs .control-area {
+    padding: 10px; }
+    .processingjs .control-area a {
+      display: inline-block;
+      background-color: #CECECE;
+      color: black;
+      padding: 4px 8px;
+      border-radius: 5px;
+      text-decoration: none; }
+  .processingjs .display-area {
+    width: 100%; }
+    .processingjs .display-area .editor {
+      position: relative;
+      width: 100%; }
+    .processingjs .display-area .output {
+      display: none;
+      overflow: auto;
+      position: relative; }

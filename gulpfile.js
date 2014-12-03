@@ -13,7 +13,9 @@ var connect = require("gulp-connect");
 var _ = require('underscore');
 
 var srcPath = './plugins/';
-var outPath = './build/';
+var buildPath = './build/';
+var examplesPath = './examples/';
+
 
 // Function to list all folders in a directory.
 // Returns array of strings with foldernames.
@@ -39,18 +41,18 @@ gulp.task('build', function() {
     gulp.src(path.join(srcPath, folder, '/stylesheets/*.scss'))
       .pipe(sass())
       .pipe(concat(folder + '.css'))
-      .pipe(gulp.dest(outPath))
+      .pipe(gulp.dest(examplesPath))
       .pipe(rename(folder + '-' + p.version + '.css'))
-      .pipe(gulp.dest(outPath));
+      .pipe(gulp.dest(buildPath));
 
     // compile coffee into a .js file in /build
     gulp.src(path.join(srcPath, folder, '/javascripts/*.coffee'))
       .pipe(coffee())
       .pipe(concat(folder + '.js'))
-      .pipe(gulp.dest(outPath))
+      .pipe(gulp.dest(examplesPath))
       .pipe(uglify())
       .pipe(rename(folder + '-' + p.version + '.min.js'))
-      .pipe(gulp.dest(outPath));
+      .pipe(gulp.dest(buildPath));
   });
 });
 
@@ -69,6 +71,9 @@ gulp.task('test', ['build', 'build_specs'], function() {
 });
 
 gulp.task('examples', ['build'], function() {
-  connect.server({port: 8002})
+  connect.server({
+    port: 8002,
+    root: 'examples'
+  })
   gulp.watch(['./**/*.coffee', './**/*.scss'], ['build']);
 });

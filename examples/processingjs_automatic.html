@@ -11,24 +11,19 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
   
   <!-- Include the plugin -->
-  <link rel="stylesheet" type="text/css" href="/build/processingjs.css">
-  <script type="text/javascript" src="/build/processingjs.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="processingjs.css">
+  <script type="text/javascript" src="processingjs.js"></script>
+
 </head>
 <body>
 
-  <pre data-code-language="processingjs" id="mycode">
+  <pre data-executable="true" data-code-language="processingjs">
 void setup() {
   size(200,200);
   fill(255, 0, 0);
   rect(100, 100, 50, 50);
 }
   </pre>
-  <script type="text/javascript">
-    $(function() {
-      var pjs = new atlasplugins.ProcessingJS($("#mycode")[0])  
-    })
-  </script>
-
+  
 </body>
 </html>

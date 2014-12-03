@@ -1,0 +1,25 @@
+.ipython {
+  width: 100%;
+  margin-top: 20px; }
+  .ipython .control-area {
+    padding-bottom: 8px; }
+    .ipython .control-area a {
+      display: inline-block;
+      background-color: #CECECE;
+      color: black;
+      padding: 4px 8px;
+      border-radius: 5px;
+      text-decoration: none; }
+  .ipython .display-area {
+    width: 100%; }
+    .ipython .display-area .editor {
+      position: relative;
+      width: 100%;
+      height: 350px; }
+    .ipython .display-area .output {
+      display: none;
+      overflow: auto;
+      position: relative;
+      height: 350px;
+      width: 100%;
+      border: none; }

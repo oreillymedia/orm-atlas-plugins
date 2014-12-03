@@ -2,20 +2,20 @@
 <head>
   <title>Automatic Processing JS</title>
   
-  <!-- include libraries -->
+  <!-- Include libraries -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.4.0/codemirror.min.css">
   <script type="text/javascript" src="https:////cdnjs.cloudflare.com/ajax/libs/codemirror/4.4.0/codemirror.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
   
-  <!-- include the plugin -->
-  <link rel="stylesheet" type="text/css" href="/build/p5.css">
-  <script type="text/javascript" src="/build/p5.js"></script>
+  <!-- Include the plugin -->
+  <link rel="stylesheet" type="text/css" href="p5.css">
+  <script type="text/javascript" src="p5.js"></script>
   
 </head>
 <body>
 
-  <pre data-executable="true" data-code-language="processing">
+  <pre data-code-language="processing" id="mycode">
 function setup()
 {
   createCanvas(720, 400);
@@ -33,6 +33,11 @@ function setup()
   triangle(300, 100, 320, 100, 310, 80);
 }
   </pre>
+  <script type="text/javascript">
+    $(function() {
+      var pjs = new atlasplugins.P5($("#mycode")[0])  
+    })
+  </script>
 
 </body>
 </html>

@@ -5,34 +5,30 @@
   <!-- Include libraries -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.4.0/codemirror.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.5.0/theme/ambiance.min.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.4.0/codemirror.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.5.0/mode/clike/clike.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
   
   <!-- Include the plugin -->
-  <script type="text/javascript">
-    if(!window.atlasplugins) window.atlasplugins = {}
-    atlasplugins.codeMirrorSettings = {
-      theme: "ambiance"
-    }
-  </script>
-  <link rel="stylesheet" type="text/css" href="/build/processingjs.css">
-  <script type="text/javascript" src="/build/processingjs.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="processingjs.css">
+  <script type="text/javascript" src="processingjs.js"></script>
+  
 </head>
 <body>
 
-  <p>This example shows how to customize codemirror settings. It includes a separate theme (and the syntax for java) and passes this theme setting to codemirror</p>
-
-  <pre data-executable="true" data-code-language="processingjs">
+  <pre data-code-language="processingjs" id="mycode">
 void setup() {
   size(200,200);
   fill(255, 0, 0);
   rect(100, 100, 50, 50);
 }
   </pre>
-  
+  <script type="text/javascript">
+    $(function() {
+      var pjs = new atlasplugins.ProcessingJS($("#mycode")[0])  
+    })
+  </script>
+
 </body>
 </html>

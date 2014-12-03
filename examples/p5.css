@@ -1,0 +1,29 @@
+.p5 {
+  width: 100%;
+  height: 450px;
+  background-color: #eee;
+  border-radius: 5px;
+  border: 1px solid #C2C2C2;
+  margin-top: 20px; }
+  .p5 .control-area {
+    padding: 10px; }
+    .p5 .control-area a {
+      display: inline-block;
+      background-color: #CECECE;
+      color: black;
+      padding: 4px 8px;
+      border-radius: 5px;
+      text-decoration: none; }
+  .p5 .display-area {
+    width: 100%; }
+    .p5 .display-area .editor {
+      position: relative;
+      width: 100%;
+      height: 350px; }
+    .p5 .display-area .output {
+      display: none;
+      overflow: auto;
+      position: relative;
+      height: 350px;
+      width: 100%;
+      border: none; }
