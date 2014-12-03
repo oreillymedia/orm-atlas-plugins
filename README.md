@@ -19,7 +19,7 @@ The `p5` plugin is a good place to start. It has a single `.coffee` file and a s
 
 To run the example, run `gulp examples`. Then open `localhost:8002` in your browser.
 
-All examples should have at least on example file in the `examples` folder.
+All examples should have at least on example file in the `examples` folder. Also make sure to add a link to the example in `examples/index.html`.
 
 Testing a plugin
 ----------------
